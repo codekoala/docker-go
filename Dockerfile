@@ -6,6 +6,7 @@ RUN pacman -Sy --noconfirm --needed \
     bzr \
     gcc \
     git \
+    make \
     mercurial \
     subversion
 
