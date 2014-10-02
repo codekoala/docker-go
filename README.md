@@ -2,7 +2,7 @@ Go Container
 ============
 
 This image contains the latest version of Go which is already
-bootstrapped for cross-compiling programs for Linux, Windows, and
+bootstrapped for cross-compiling programs for Linux, Windows, OSX, and
 BSD with 32-bit, 64-bit, and ARM architecture support.
 
 Example Usage
@@ -14,7 +14,7 @@ You can build a Go app with a command like the following:
         -v $(pwd):/code/src/$(basename $PWD) \
         -w /code/src/$(basename $PWD) \
         -e GOPATH=/code \
-        codekoala/go build
+        codekoala/go go build
 
 You can adjust this for another architecture with:
 
@@ -23,7 +23,7 @@ You can adjust this for another architecture with:
         -w /code/src/$(basename $PWD) \
         -e GOPATH=/code \
         -e GOARCH=386 \
-        codekoala/go build
+        codekoala/go go build
 
 Or another platform:
 
@@ -33,11 +33,11 @@ Or another platform:
         -e GOPATH=/code \
         -e GOARCH=386 \
         -e GOOS=windows \
-        codekoala/go build
+        codekoala/go go build
 
 Create an alias for it:
 
-    alias dgo='docker run -it --rm -v $(pwd):/code/src/$(basename $PWD) -w /code/src/$(basename $PWD) -e GOPATH=/code -e GOARCH=$GOARCH -e GOOS=$GOOS codekoala/go '
+    alias dgo='docker run -it --rm -v $(pwd):/code/src/$(basename $PWD) -w /code/src/$(basename $PWD) -e GOPATH=/code -e GOARCH=$GOARCH -e GOOS=$GOOS codekoala/go go '
 
     export GOOS=windows
     dgo build
